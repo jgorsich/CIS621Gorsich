@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Show letter grade</title>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>	
+	<script>
+		var entry;
+		var letterGrade;
+		var validEntry = true;
+		
+		do {
+			validEntry=true;
+			entry = prompt("Enter number grade from 0 through 100\n" +
+			               "Or enter 999 to end entries", 999);
+/*			if (isNaN(entry)){
+				validEntry = false;
+			}*/
+			entry = parseInt(entry);
+			//data validation
+			if (entry >100 || entry <0 || isNaN(entry)){
+		 		validEntry=false;
+			}
+			
+			// derive and display the letter grade
+			if (entry >=88 && entry <= 100){
+				letterGrade = "A";
+			}
+			if (entry >= 80 && entry <88){
+				letterGrade="B";
+			}
+			if (entry >=68 && entry <80){
+				letterGrade="C";
+			}
+			if (entry >=60 && entry <68){
+				letterGrade="D";
+			}
+			if (entry >=0 && entry <60){
+				letterGrade="F";
+			}
+
+
+			if (validEntry==true) {
+				alert("Number grade = " + entry + "\n"
+						+ "Letter grade = " + letterGrade);
+			}
+
+		}
+		while (entry != 999);
+	</script>
+</head>
+<body>
+<section>
+    <h1>This page is displayed after the JavaScript is executed</h1>
+</section>
+</body>
+</html>
