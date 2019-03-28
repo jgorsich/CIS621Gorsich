@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pay Calculator</title>
+    <link rel="stylesheet" href="pay_calc.css">
+    <script src="pay_calc.js"></script>
+</head>
+<body>
+    <main>
+        <!--this code is loosely based off of the chapter 5 email list code-->
+        <h1>Bi-weekly Pay Calculator</h1>
+        <label for="hours">Hours worked per 2 weeks:</label>
+        <input type="text" id="hours" name="hours">
+        <span id="hours_error">*</span><br><br>
+
+        <label for="rate">Pay rate per hour:</label>
+        <input type="text" id="rate" name="rate">
+        <span id="rate_error">*</span><br><br>
+
+        <label>&nbsp;</label>
+        <input type="button" id="calc_pay" value="Calculate Pay"><br>
+        <label for="gross_pay">Gross Pay: </label>
+        <input type="text" id="gross_pay" name="gross_pay" disabled><br>
+        <label for="net_pay">Net Pay: </label>
+        <input type="text" id="net_pay" name="net_pay" disabled>
+    </main>
+
+</body>
+</html>

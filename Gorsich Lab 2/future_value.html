@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">	
+    <title>Future Value Application</title>
+    <script>
+    "use strict";
+    var $ = function(id){
+        return document.getElementById(id);
+    };
+    </script>
+</head>
+<body>
+    <main>
+    	<script>
+
+            var futureValue;
+            var again = "y";
+            var currentValue;
+            var interestValue;
+
+            do {
+                futureValue=0;
+                currentValue=0;
+                // get user entries
+                do {
+                    var investment = prompt("Enter investment amount as xxxxx.xx", 10000);
+                    investment = parseFloat(investment);
+
+                    if ( isNaN(investment) || investment<=0){
+                        alert("Investment must be a number great than 0.");
+                    }
+                }
+                while ( isNaN(investment)|| (investment<=0));
+
+                do {
+                    var rate = prompt("Enter interest rate as xx.x", 7.5);
+                    rate = parseFloat(rate);
+
+                    if (isNaN(rate)||rate<=0||rate>15){
+                        alert("rate must be a number between 0 and 15.");
+                    }
+
+                }
+                while ( isNaN(rate)||rate<=0||rate>15);
+
+                var years = prompt("Enter number of years", 10);
+                years = parseInt(years);
+
+                // calulate future value
+/*                futureValue = investment;
+                for (var i = 1; i <= years; i++) {
+                    futureValue = futureValue + (futureValue * rate / 100);
+                }
+                futureValue = parseInt(futureValue);*/
+
+                document.write("Investment amount = " + investment);
+                document.write(" Interest rate = " + rate);
+                document.write(" Years = " + years + "<br>");
+                //document.write(" Future Value is " + futureValue + "<br><br>");
+                currentValue=investment;
+
+                for (var i =1; i<=years;i++){
+                    interestValue=(rate/100)*currentValue;
+                    currentValue=currentValue+interestValue;
+                    document.write("Year="+i+" Interest ="+ interestValue.toFixed(2) + " Value=" + currentValue.toFixed(0)+"<br>");
+                }
+                document.write("<br>");
+
+                again = prompt("Repeat entries?", "y");
+            }
+            while (again == "y");
+        </script>
+        Thanks for using the Future Value application.
+    </main>
+</body>
+</html>
