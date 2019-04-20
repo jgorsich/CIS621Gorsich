@@ -1,0 +1,30 @@
+html login page
+    password
+        check for empty with JS
+        submit through php page - route to landing page if successful, back to password if not
+            use the same protection setup (php based) that you used before
+html landing page
+    navigation pane (html)
+        use JS to show and hide sub headings - make sure there are sub headings
+        -main (this page)
+        -data download
+            add ability to search database like search function in library
+            download to csv, or excel if you can figure out how  
+                *JS to validate entries
+                *php to process - don't forget to negate commands
+        +Graphs by level
+            - ech who level, main landing page graphs but filtered per level
+        +Atypical results
+            -error counts
+                -errors per month, last 12 months
+                -errors per user (%) segregated by BP level
+                -error types with count, last 12 months, this month
+            -potential outliers
+                -graph showing percentage of users with atypical (outlier) reading, broken up by BP level
+
+
+    graph showing unique users per month for last 12 months
+        *JS library mentioned by teacher for all graphs, pass data to JS from php database queries
+    graph showing number of uses per month for last 12 months
+    graph showing number of uses per user (average) per month for last 12 months
+    graph showing percentage at different who levels

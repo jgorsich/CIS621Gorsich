@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<!--
+    This code written by James Gorsich (gorsichj1@student.lasalle.edu) for CIS621 based on code previously
+    written for CIS626
+
+this is the true landing page for the dashboard, but it passes the user immediately to the home page instead for
+easier styling and php use.
+
+
+-->
+<html>
+<head>
+    <title>BPDashboard</title>
+    <link rel="stylesheet" type"text/css" href="css/GorsichStyle.css">
+
+</head>
+<body>
+
+<form id="form1" action="php/MainLanding.php" method="post">
+    <input type="hidden" id="hidden_username" value="" />
+</form>
+
+<script>
+    document.getElementById("form1").submit();
+</script>
+</body>
+</html>
