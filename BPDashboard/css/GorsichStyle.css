@@ -1,0 +1,32 @@
+/*this formats the navigation bar background*/
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+
+}
+/*this formats more of the nav list*/
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+/*this formats individual elements of the nav list*/
+nav li a {
+    display: block;
+    color: #000;
+    padding: 4px 16px;
+    text-decoration: none;
+}
+/*this formats the nav element you hover over*/
+nav li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+/*this format the elements you aren't hovering over*/
+nav li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}

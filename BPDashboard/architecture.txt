@@ -22,9 +22,10 @@ html landing page
             -potential outliers
                 -graph showing percentage of users with atypical (outlier) reading, broken up by BP level
 
-
+        *plotly library should be used for all graphs
+    
     graph showing unique users per month for last 12 months
-        *JS library mentioned by teacher for all graphs, pass data to JS from php database queries
+        SELECT * FROM blood_pressure_readings WHERE (date BETWEEN 'one year ago' AND 'today')
     graph showing number of uses per month for last 12 months
     graph showing number of uses per user (average) per month for last 12 months
     graph showing percentage at different who levels

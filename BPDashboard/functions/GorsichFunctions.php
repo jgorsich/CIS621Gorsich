@@ -1,6 +1,9 @@
 <?php 
 //this code is written by James Gorsich
 
+function runTest(){
+    
+}
 function db_connect() {
     //connect to the database, based on username and password
     //returns false if connection doesn't work, for error checking without use of exceptions
@@ -14,10 +17,12 @@ function db_connect() {
    }
 }
 
+
 function dbSearch($SearchTerms){
     //this function searches the database and returns an array for use on the other sheets
 
         //make sure a useful entry is in every relevant field of $SearchTerms
+        // protect against sql injection:  https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection
 
     $QuerySet="";
     // QuerySet builds what columns I'm searching
@@ -71,7 +76,7 @@ function dbSearch($SearchTerms){
 
     //prepare the querry
     $stmt =$db->prepare($query);
-    //if you are using prepared statements (I'm not expecting too)
+    //if you are using prepared statements 
     if ($FormatSet!=""){
 
     //from https://stackoverflow.com/questions/16120822/mysqli-bind-param-expected-to-be-a-reference-value-given

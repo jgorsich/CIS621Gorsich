@@ -20,6 +20,13 @@ session_start();
         require('GorsichInclusions.php');
     ?>
     <!-- end of block to include on every php page -->
+    <?php
+        require('../functions/MainPageQuery.php');
+    ?>
+    <script src="../scripts/MainPageScript.js"></script>
+
+    <div id="output"></div>
+    
 
 
  </body>

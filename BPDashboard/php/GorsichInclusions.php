@@ -7,8 +7,8 @@
     require('../functions/GorsichFunctions.php');
 
     //add in the requried libraries
-    echo '<script src="../scripts/jquery-3.2.1.js"></script>'."\n";
-
+    echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>'."\n";
+    echo '<script src="../scripts/GorsichGeneralScript.js"></script>'."\n";
 
     //include a header section for the site header
     echo "<header> \n";
@@ -38,6 +38,6 @@
 
     echo "</ul> \n";
     echo "</nav> \n";
-
+    echo "<h2>", runTest(), "</h2>";
 
 ?>
