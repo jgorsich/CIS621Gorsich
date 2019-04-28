@@ -52,8 +52,56 @@ var layout = {
 
 Plotly.plot( 'BPLevels', pieData, layout);
 
-// now add a 2 chart pie chart with the diastolic and systolic charts broken up in a 2x1 grid - see plotly for info
+// now add a 2 chart pie chart with the diastolic and systolic charts broken up in a 1x2 grid - see plotly for info
 //this second chart will go in BPSubLevels div.
 
+var subPieSystolic = {
+    values: [greenTotalSys, yellowTotalSys, orangeTotalSys, redTotalSys],
+    labels: ['Green', 'Yellow', 'Orange', 'Red'],
+    type: 'pie',
+    name: 'Systolic Only',
+    marker: { colors:[
+            'rgb(0, 204, 0)',
+            'rgb(255, 255, 0)',
+            'rgb(240, 88, 0)',
+            'rgb(215, 11, 11)'
+        ]},
+    domain: {
+        row: 0,
+        column: 0
+    },
+    sort: false,
+    title: 'Systolic',
+};
+
+var subPieDiastolic = {
+    values: [greenTotalDia, yellowTotalDia, orangeTotalDia, redTotalDia],
+    labels: ['Green', 'Yellow', 'Orange', 'Red'],
+    type: 'pie',
+    name: 'Diastolic Only',
+    marker: { colors:[
+            'rgb(0, 204, 0)',
+            'rgb(255, 255, 0)',
+            'rgb(240, 88, 0)',
+            'rgb(215, 11, 11)'
+        ]},
+    domain: {
+        row: 0,
+        column: 1
+    },
+    sort: false,
+    title: 'Diastolic',
+};
+
+var subPieData = [subPieSystolic, subPieDiastolic];
+
+var layout = {
+    title: 'WHO Levels, Systolic / Diastolic Seperately',
+    grid: {rows: 1, columns: 2}
+};
+
+
+
+Plotly.plot( 'BPSubLevels', subPieData, layout);
 
 
