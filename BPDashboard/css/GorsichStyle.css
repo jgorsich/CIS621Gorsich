@@ -1,32 +1,79 @@
-/*this formats the navigation bar background*/
-nav {
-    float: left;
-    max-width: 160px;
-    margin: 0;
-    padding: 1em;
+header {
+    display:block;
+    width:100%;
+    text-align:center;
+}
+nav{
+    clear:both;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
 
+li {
+  float: left;
 }
-/*this formats more of the nav list*/
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #f1f1f1;
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
-/*this formats individual elements of the nav list*/
-nav li a {
-    display: block;
-    color: #000;
-    padding: 4px 16px;
-    text-decoration: none;
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
 }
-/*this formats the nav element you hover over*/
-nav li a.active {
-    background-color: #4CAF50;
-    color: white;
+
+li.dropdown {
+  display: inline-block;
 }
-/*this format the elements you aren't hovering over*/
-nav li a:hover:not(.active) {
-    background-color: #555;
-    color: white;
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/*this format the tester graph*/
+#UniqueUsers {
+    float: right;
+    width:50%;
+    height:400px;
+}
+
+#BPLevels {
+    float: left;
+    width:50%;
+    height:400px;
+}
+
+#Readings {
+    float: right;
+    width:50%;
+    height:400px;
+}
+

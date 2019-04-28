@@ -15,17 +15,23 @@ session_start();
     <link rel="stylesheet" type"text/css" href="../css/GorsichStyle.css">
     </head>
 <body>
-    <!-- the following should be copied to every php page that is customer facing, at the start of the body section -->
     <?php
-        require('GorsichInclusions.php');
-    ?>
-    <!-- end of block to include on every php page -->
-    <?php
-        require('../functions/MainPageQuery.php');
-    ?>
-    <script src="../scripts/MainPageScript.js"></script>
+    require('GorsichInclusions.php');
 
-    <div id="output"></div>
+    require('../functions/MonthlyReadings.php');
+    require('../functions/UniqueUsers.php');
+    require('../functions/WHOLevels.php');
+    ?>
+
+    <div id="UniqueUsers"></div>
+    <div id="BPLevels"></div>
+    <div id="Readings"></div>
+    <div id="BPSubLevels"></div>
+    
+    <script src="../scripts/UniqueUsers.js"></script>
+    <script src="../scripts/MonthlyReadings.js"></script>
+    <script src="../scripts/WHOLevels.js"></script>
+
     
 
 
