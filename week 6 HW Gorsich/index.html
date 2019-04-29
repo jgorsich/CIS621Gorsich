@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASGN 5 Form Validation</title>
+    <!-- Normal style sheet used for layout and general formatting. -->
+    <link href="styles.css" type="text/css" rel="stylesheet">
+
+    <!-- jQuery library reference. Latest is always referenced from jQuery's CDN. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+		
+    
+</head>
+
+<body>
+<form id="contact" method="post" action="">
+     
+<fieldset>    
+ 
+<label for="name">Name</label>
+<input type="text" name="name" id="name" placeholder="Full Name" title="Enter your name" class="required resettable">
+<span class="resettable">*</span><br>
+ 
+<label for="email">E-mail Address</label>
+<input type="text" name="email" id="email" placeholder="name@domain.com" title="Enter your email" class="required resettable">
+<span class="resettable">*</span><br>
+ 
+<label for="phone">Phone Number</label>
+<input type="text" name="phone" id="phone" placeholder="ex. (555) 555-5555" class="required resettable">
+<span class="resettable">*</span><br>
+ 
+<label for="address1">Street Address</label>
+<input type="text" name="address1" class="resettable"><br/>
+ 
+<label for="address2">Street Address 2</label>
+<input type="text" name="address2" class="resettable"><br/>
+
+<label for="city">City</label>
+<input type="text" name="city" class="resettable"><br/>
+
+<label for="city">State</label>
+<input type="text" name="state" class="resettable"><br/>
+
+<label for="zip">Zip</label>
+<input type="text" name="zip" class="resettable"><br/>
+
+<label for="country">Country</label>
+<input type="text" name="country" id="country" class="required resettable">
+<span class="resettable">*</span><br>
+
+<label for="desired_track">Desired Track</label>
+<select name="desired_track">
+  <option value="corporate_fraud">Corporate Fraud</option>
+  <option value="network_security">Network Security</option>
+</select><br/>
+
+<label for="message">Message</label>
+<textarea name="message" id="message" title="Enter your message" class="required resettable"></textarea><br/>
+
+<input type="input" name="submit" id="submit" value="Send Message">
+<input type="input" name="reset" id="reset" value="Reset"><br>
+ 
+</fieldset>
+</form>
+ 
+</body>
+</html>
