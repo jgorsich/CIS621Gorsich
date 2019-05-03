@@ -59,20 +59,26 @@ li.dropdown {
 
 
 /*this format the tester graph*/
-#UniqueUsers {
+#GraphTR {
     float: right;
     width:50%;
     height:400px;
 }
 
-#BPLevels {
+#GraphTL {
     float: left;
     width:50%;
     height:400px;
 }
 
-#Readings {
+#GraphBR {
     float: right;
+    width:50%;
+    height:400px;
+}
+
+#GraphBL {
+    float: left;
     width:50%;
     height:400px;
 }

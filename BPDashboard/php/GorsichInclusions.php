@@ -2,13 +2,24 @@
 
  <?php
  //this is the page for inclusion on the other customer facing pages. 
-
-
     require('../functions/GorsichFunctions.php');
+    require('../functions/MonthlyReadings.php');
+    require('../functions/UniqueUsers.php');
+    require('../functions/WHOLevels.php');
+    require('../functions/Demographics.php');
+    mysqli_close($conn);
+
 
     //add in the requried libraries
     echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>'."\n";
     echo '<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>'."\n";
+    echo '<script src="../scripts/UniqueUsers.js"></script>'."\n";
+    echo '<script src="../scripts/MonthlyReadings.js"></script>'."\n";
+    echo '<script src="../scripts/WHOLevels.js"></script>'."\n";
+    echo '<script src="../scripts/AveReadings.js"></script>'."\n";
+    echo '<script src="../scripts/ReadingsByLevel.js"></script>'."\n";
+    echo '<script src="../scripts/SeperatePercentByLevel.js"></script>'."\n";
+    echo '<script src="../scripts/PercentByLevel.js"></script>'."\n";
     echo '<script src="../scripts/GorsichGeneralScript.js"></script>'."\n";
 
     //include a header section for the site header
@@ -25,7 +36,9 @@
 
     //the following are various navigation links 
     //fix this per https://www.w3schools.com/css/tryit.asp?filename=trycss_dropdown_navbar
-    echo '<li><a href="MainLanding.php">Main Page</a></li>'."\n";
+    echo '<li><a href="#" id="totals">Totals</a></li>'."\n";
+    echo '<li><a href="#" id="averages">Averages & %</a></li>'."\n";
+    echo '<li><a href="#" id="demographics">Demographics</a></li>'."\n";
     echo '<li class="dropdown">'."\n";
     echo '<a href="bullshit" class="dropbtn">Graphs by Level</a>'."\n";
     echo '<div class="dropdown-content">'."\n";

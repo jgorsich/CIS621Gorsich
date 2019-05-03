@@ -1,5 +1,5 @@
 //this script is for the Monthly Readings graph
-
+function makeMonthlyReadings(){
 var xLabels = new Array();
 var xData = new Array();
 var yData = new Array();
@@ -31,4 +31,5 @@ var layout = {
     }
 }
 
-Plotly.plot( 'Readings', [data], layout);
+Plotly.plot( 'GraphBR', [data], layout);
+}

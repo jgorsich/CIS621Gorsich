@@ -1,5 +1,4 @@
-//this script is for the WHO Levels pie chart
-function makeWhoLevel(){
+function makePhoneVersion(){
 var greenTotal = 0;
 var yellowTotal = 0;
 var orangeTotal = 0;
@@ -45,7 +44,7 @@ var pieData = [{
 }];
 
 var layout = {
-    title: 'WHO Levels, Last Full Year',
+    title: 'Android vs iOS',
 };
 
 
@@ -98,7 +97,7 @@ var subPieDiastolic = {
 var subPieData = [subPieSystolic, subPieDiastolic];
 
 var layout = {
-    title: 'WHO Levels, Systolic / Diastolic Seperately',
+    title: 'App Versions: Android / iOS',
     grid: {rows: 1, columns: 2}
 };
 
@@ -106,4 +105,3 @@ var layout = {
 
 Plotly.plot( 'GraphBL', subPieData, layout);
 }
-

@@ -1,4 +1,5 @@
 // the folllowing script is for the Unique Users graph
+function makeUniqueUser(){
 var xLabels = new Array();
 var xData = new Array();
 var yData = new Array();
@@ -30,4 +31,5 @@ var layout = {
     }
 }
 
-Plotly.plot( 'UniqueUsers', [data], layout);
+Plotly.plot( 'GraphTR', [data], layout);
+}

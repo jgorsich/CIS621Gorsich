@@ -1,5 +1,6 @@
 <?php
 //this sql counts the number of blood pressure readings over the last year by month. 
+
 $sql = "SELECT COUNT(*) as 'count', DATE_FORMAT(date, '%Y-%m') as 'month' FROM `blood_pressure_readings` WHERE `date` BETWEEN '{$oneYearAgo}' AND '{$today}' GROUP BY DATE_FORMAT(date, '%Y-%m')";
 
 
@@ -14,5 +15,6 @@ if (mysqli_num_rows($result) >0){
 
 //echo "<script>console.log(", json_encode($rows), ");</script>";
 echo "<script>var monthlyReadings = (", json_encode($rows), ");</script>";
-    
+
+unset($rows);
 ?>

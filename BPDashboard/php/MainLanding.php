@@ -18,20 +18,14 @@ session_start();
     <?php
     require('GorsichInclusions.php');
 
-    require('../functions/MonthlyReadings.php');
-    require('../functions/UniqueUsers.php');
-    require('../functions/WHOLevels.php');
     ?>
 
-    <div id="UniqueUsers"></div>
-    <div id="BPLevels"></div>
-    <div id="Readings"></div>
-    <div id="BPSubLevels"></div>
-    
-    <script src="../scripts/UniqueUsers.js"></script>
-    <script src="../scripts/MonthlyReadings.js"></script>
-    <script src="../scripts/WHOLevels.js"></script>
+    <div id="GraphTL"></div>
+    <div id="GraphTR"></div>
+    <div id="GraphBR"></div>
+    <div id="GraphBL"></div>
 
+    
     
 
 
