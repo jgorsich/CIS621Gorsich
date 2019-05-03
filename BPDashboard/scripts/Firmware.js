@@ -1,54 +1,55 @@
 function makeFirmwareVersion(){
-var greenTotal = 0;
-var yellowTotal = 0;
-var orangeTotal = 0;
-var redTotal=0;
-var greenTotalSys = 0;
-var yellowTotalSys = 0;
-var orangeTotalSys = 0;
-var redTotalSys=0;
-var greenTotalDia = 0;
-var yellowTotalDia = 0;
-var orangeTotalDia = 0;
-var redTotalDia=0;
+var firmwareVersion = [];
+var readingCount = [];
+var userCount = [];
 
-for (var i=0; i<WHOBoth.length; i++){
-    greenTotal=greenTotal+parseInt(WHOBoth[i].Green);
-    yellowTotal=yellowTotal+parseInt(WHOBoth[i].Yellow);
-    orangeTotal=orangeTotal+parseInt(WHOBoth[i].Orange);
-    redTotal=redTotal+parseInt(WHOBoth[i].Red);
 
-    greenTotalSys=greenTotalSys+parseInt(WHOSystolic[i].Green);
-    yellowTotalSys=yellowTotalSys+parseInt(WHOSystolic[i].Yellow);
-    orangeTotalSys=orangeTotalSys+parseInt(WHOSystolic[i].Orange);
-    redTotalSys=redTotalSys+parseInt(WHOSystolic[i].Red);
+for (var i=0; i<firmVersion.length; i++){
+    firmwareVersion[i]=firmVersion[i].version;
+    if (i==0){firmwareVersion[i]= "Not recorded";}
+    readingCount[i]=firmVersion[i].countReadings;
+    userCount[i]=firmVersion[i].countUser;
     
-    greenTotalDia=greenTotalDia+parseInt(WHODiastolic[i].Green);
-    yellowTotalDia=yellowTotalDia+parseInt(WHODiastolic[i].Yellow);
-    orangeTotalDia=orangeTotalDia+parseInt(WHODiastolic[i].Orange);
-    redTotalDia=redTotalDia+parseInt(WHODiastolic[i].Red);
 
 }
 
-var pieData = [{
-    values: [greenTotal, yellowTotal, orangeTotal, redTotal],
-    labels: ['Green', 'Yellow', 'Orange', 'Red'],
-    marker: { colors:[
-            'rgb(0, 204, 0)',
-            'rgb(255, 255, 0)',
-            'rgb(240, 88, 0)',
-            'rgb(215, 11, 11)'
-        ]},
+var subPieUser = {
+    values: userCount,
+    labels: firmwareVersion,
     type: 'pie',
-    sort: false
-}];
+    name: 'By User',
+
+    domain: {
+        row: 0,
+        column: 0
+    },
+    sort: false,
+    title: 'By User',
+};
+
+var subPieReadings = {
+    values: readingCount,
+    labels: firmwareVersion,
+    type: 'pie',
+    name: 'By Readings',
+
+    domain: {
+        row: 0,
+        column: 1
+    },
+    sort: false,
+    title: 'By Readings',
+};
+
+var subPieData = [subPieUser, subPieReadings];
 
 var layout = {
     title: 'Firmware Versions',
+    grid: {rows: 1, columns: 2}
 };
 
 
 
-Plotly.plot( 'GraphTR', pieData, layout);
+Plotly.plot( 'GraphTR', subPieData, layout);
 
 }

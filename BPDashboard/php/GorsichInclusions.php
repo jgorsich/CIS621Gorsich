@@ -21,6 +21,9 @@
     echo '<script src="../scripts/SeperatePercentByLevel.js"></script>'."\n";
     echo '<script src="../scripts/PercentByLevel.js"></script>'."\n";
     echo '<script src="../scripts/GorsichGeneralScript.js"></script>'."\n";
+    echo '<script src="../scripts/AppAndPhone.js"></script>'."\n";
+    echo '<script src="../scripts/Firmware.js"></script>'."\n";
+    echo '<script src="../scripts/OSVersion.js"></script>'."\n";
 
     //include a header section for the site header
     echo "<header> \n";

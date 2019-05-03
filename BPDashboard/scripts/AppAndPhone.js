@@ -1,103 +1,100 @@
 function makePhoneVersion(){
-var greenTotal = 0;
-var yellowTotal = 0;
-var orangeTotal = 0;
-var redTotal=0;
-var greenTotalSys = 0;
-var yellowTotalSys = 0;
-var orangeTotalSys = 0;
-var redTotalSys=0;
-var greenTotalDia = 0;
-var yellowTotalDia = 0;
-var orangeTotalDia = 0;
-var redTotalDia=0;
+var iOSVersions = [];
+var androidVersions = [];
+var iOSReadings = [];
+var iOSUsers=[];
+var androidReadings=[];
+var androidUsers=[];
 
-for (var i=0; i<WHOBoth.length; i++){
-    greenTotal=greenTotal+parseInt(WHOBoth[i].Green);
-    yellowTotal=yellowTotal+parseInt(WHOBoth[i].Yellow);
-    orangeTotal=orangeTotal+parseInt(WHOBoth[i].Orange);
-    redTotal=redTotal+parseInt(WHOBoth[i].Red);
-
-    greenTotalSys=greenTotalSys+parseInt(WHOSystolic[i].Green);
-    yellowTotalSys=yellowTotalSys+parseInt(WHOSystolic[i].Yellow);
-    orangeTotalSys=orangeTotalSys+parseInt(WHOSystolic[i].Orange);
-    redTotalSys=redTotalSys+parseInt(WHOSystolic[i].Red);
-    
-    greenTotalDia=greenTotalDia+parseInt(WHODiastolic[i].Green);
-    yellowTotalDia=yellowTotalDia+parseInt(WHODiastolic[i].Yellow);
-    orangeTotalDia=orangeTotalDia+parseInt(WHODiastolic[i].Orange);
-    redTotalDia=redTotalDia+parseInt(WHODiastolic[i].Red);
+for (var i=0; i<appVersion.length; i++){
+    if (appVersion[i].os == 'iOS'){
+        iOSVersions[iOSVersions.length]=appVersion[i].version;
+        iOSReadings[iOSReadings.length]=appVersion[i].countReadings;
+        iOSUsers[iOSUsers.length]=appVersion[i].countUser;
+    }else{
+        androidVersions[androidVersions.length]=appVersion[i].version;
+        androidReadings[androidReadings.length]=appVersion[i].countReadings;
+        androidUsers[androidUsers.length]=appVersion[i].countUser;
+    }
 
 }
 
-var pieData = [{
-    values: [greenTotal, yellowTotal, orangeTotal, redTotal],
-    labels: ['Green', 'Yellow', 'Orange', 'Red'],
-    marker: { colors:[
-            'rgb(0, 204, 0)',
-            'rgb(255, 255, 0)',
-            'rgb(240, 88, 0)',
-            'rgb(215, 11, 11)'
-        ]},
+var subPieUsers = {
+    values: iOSUsers,
+    labels: iOSVersions,
     type: 'pie',
-    sort: false
-}];
+    name: 'By User',
+
+    domain: {
+        row: 0,
+        column: 0
+    },
+
+    title: 'iOS by Users',
+};
+
+var subPieReadings = {
+    values: iOSReadings,
+    labels: iOSVersions,
+    type: 'pie',
+    name: 'By Readings',
+
+    domain: {
+        row: 0,
+        column: 1
+    },
+
+    title: 'iOS by Readings',
+};
+
+var subPieData = [subPieUsers, subPieReadings];
 
 var layout = {
-    title: 'Android vs iOS',
+    title: 'App Versions: iOS',
+    grid: {rows: 1, columns: 2}
 };
 
 
 
-Plotly.plot( 'GraphTL', pieData, layout);
+Plotly.plot( 'GraphTL', subPieData, layout);
 
 
 // now add a 2 chart pie chart with the diastolic and systolic charts broken up in a 1x2 grid - see plotly for info
 //this second chart will go in BPSubLevels div.
 
 
-var subPieSystolic = {
-    values: [greenTotalSys, yellowTotalSys, orangeTotalSys, redTotalSys],
-    labels: ['Green', 'Yellow', 'Orange', 'Red'],
+var subPieUsers = {
+    values: androidUsers,
+    labels: androidVersions,
     type: 'pie',
-    name: 'Systolic Only',
-    marker: { colors:[
-            'rgb(0, 204, 0)',
-            'rgb(255, 255, 0)',
-            'rgb(240, 88, 0)',
-            'rgb(215, 11, 11)'
-        ]},
+    name: 'By User',
+
     domain: {
         row: 0,
         column: 0
     },
-    sort: false,
-    title: 'Systolic',
+
+    title: 'Android by Users',
 };
 
-var subPieDiastolic = {
-    values: [greenTotalDia, yellowTotalDia, orangeTotalDia, redTotalDia],
-    labels: ['Green', 'Yellow', 'Orange', 'Red'],
+var subPieReadings = {
+    values: androidReadings,
+    labels: androidVersions,
     type: 'pie',
-    name: 'Diastolic Only',
-    marker: { colors:[
-            'rgb(0, 204, 0)',
-            'rgb(255, 255, 0)',
-            'rgb(240, 88, 0)',
-            'rgb(215, 11, 11)'
-        ]},
+    name: 'By Readings',
+
     domain: {
         row: 0,
         column: 1
     },
-    sort: false,
-    title: 'Diastolic',
+
+    title: 'Android by Readings',
 };
 
-var subPieData = [subPieSystolic, subPieDiastolic];
+var subPieData = [subPieUsers, subPieReadings];
 
 var layout = {
-    title: 'App Versions: Android / iOS',
+    title: 'App Versions: Android',
     grid: {rows: 1, columns: 2}
 };
 

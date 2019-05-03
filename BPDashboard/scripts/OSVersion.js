@@ -1,48 +1,56 @@
 function makeOSVersion(){
 
+var operatingSystem = ['iOS','Android'];
+var readingCount = [0,0];
+var userCount = [0,0];
 
-var subPieSystolic = {
-    values: [greenTotalSys, yellowTotalSys, orangeTotalSys, redTotalSys],
-    labels: ['Green', 'Yellow', 'Orange', 'Red'],
+
+for (var i=0; i<appVersion.length; i++){
+    if (appVersion[i].os == operatingSystem[0]){
+        readingCount[0]+=parseInt(appVersion[i].countReadings);
+        userCount[0]+=parseInt(appVersion[i].countUser);
+    } else {
+        readingCount[1]+=parseInt(appVersion[i].countReadings);
+        userCount[1]+=parseInt(appVersion[i].countUser);
+    }
+
+
+    
+
+}
+
+var subPieUser = {
+    values: userCount,
+    labels: operatingSystem,
     type: 'pie',
-    name: 'Systolic Only',
-    marker: { colors:[
-            'rgb(0, 204, 0)',
-            'rgb(255, 255, 0)',
-            'rgb(240, 88, 0)',
-            'rgb(215, 11, 11)'
-        ]},
+    name: 'By User',
+
     domain: {
         row: 0,
         column: 0
     },
-    sort: false,
-    title: 'Systolic',
+
+    title: 'By User',
 };
 
-var subPieDiastolic = {
-    values: [greenTotalDia, yellowTotalDia, orangeTotalDia, redTotalDia],
-    labels: ['Green', 'Yellow', 'Orange', 'Red'],
+var subPieReadings = {
+    values: readingCount,
+    labels: operatingSystem,
     type: 'pie',
-    name: 'Diastolic Only',
-    marker: { colors:[
-            'rgb(0, 204, 0)',
-            'rgb(255, 255, 0)',
-            'rgb(240, 88, 0)',
-            'rgb(215, 11, 11)'
-        ]},
+    name: 'By Readings',
+
     domain: {
         row: 0,
         column: 1
     },
-    sort: false,
-    title: 'Diastolic',
+
+    title: 'By Readings',
 };
 
-var subPieData = [subPieSystolic, subPieDiastolic];
+var subPieData = [subPieUser, subPieReadings];
 
 var layout = {
-    title: 'OS Versions: Android / iOS',
+    title: 'Operating System Divisions',
     grid: {rows: 1, columns: 2}
 };
 
